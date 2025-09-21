@@ -1,5 +1,12 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect, memo } from 'react'
+import PokemonDetail from "./PokemonDetail"
 import axios from 'axios';
+
+function detailPage() {
+    return <PokemonDetail />
+}
+
+
 
 function PokemonCard({ name, url }) {
     const [User, setUser] = useState({ Poster: "", Name: "", Reirly: "", CardNo: "", Power: "" })
@@ -7,7 +14,7 @@ function PokemonCard({ name, url }) {
     useEffect(() => {
         axios.get(url)
             .then(response => {
-                console.log(response.data)
+                //  console.log(response.data.abilities[1].ability.url)
                 setUser({
                     Poster: `${response.data.sprites.front_default}`,
                     Name: `${name}`, Reirly: "", CardNo: "", Power: ""
@@ -22,9 +29,9 @@ function PokemonCard({ name, url }) {
 
 
     return (
-        <div >
-            <div className='p-10 border-2 w-60  m-10 rounded-2xl border-t-orange-800 border-b-purple-800'>
-                <img srcSet={User.Poster} alt="deneme" />
+        <div onClick={detailPage} >
+            <div className='p-10 border-2 w-60  m-10 rounded-2xl border-t-orange-800 border-b-purple-800 bg-white/40'>
+                <img srcSet={User.Poster} alt="deneme" className='w-46 ' />
                 <div className=''>
                     <h2>Name: {name}</h2>
                     <h2>Reirly:</h2> {/*Reirly = Nadirlik*/}
