@@ -34,6 +34,8 @@ function PokemonData() {
                 console.error('Error:', error.response?.status);
             });
     }, [offset])
+
+    // const [NewCardLoding, setNewCardLoding] = useState(false);
     useEffect(() => {
         //   console.log("innerHeight:" + window.innerHeight)
         //   console.log("scrollY:" + window.scrollY)
@@ -43,13 +45,19 @@ function PokemonData() {
         // console.log(pageHeight - (window.innerHeight + window.scrollY))
 
         let results = pageHeight - (window.innerHeight + window.scrollY);
-        if (results <= 50) {
+        if (results <= 200) {
             //  let last = pageHeight - (window.innerHeight + window.scrollY);
             //console.log("çalıştı offset 50 ", pageHeight - (window.innerHeight + window.scrollY))
+
+            // setNewCardLoding(true)
             setTimeout(() => {
+                // console.log("çalışıyo")
+
                 //console.log("timeout ")
                 setOffset(offset + 30)
-                //console.log(offset)
+                // console.log(offset)
+                //  setNewCardLoding(false)
+
             }, 100);
         }
         //else {
@@ -58,12 +66,15 @@ function PokemonData() {
     }, [scrollY])
     return (
         <div className='flex flex-wrap justify-center'>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className='w-full h-full flex justify-center m-5 text-3xl'>Loading...</div>}>
                 {usePokemonData.map((data, index) => {
                     // console.log(data)
-                    return <PokemonCard name={data.name} url={data.url} key={index} />
+                    return <PokemonCard name={data.name} url={data.url} id={index + 1} key={index} />
                 })}
+
+                {/*  <div className='w-full justify-center m-5 text-3xl' style={{ display: NewCardLoding ? 'flex' : 'none' }}>Loading...</div> */}
             </Suspense>
+
         </div>
     )
 }
