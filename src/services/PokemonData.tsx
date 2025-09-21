@@ -42,12 +42,15 @@ function PokemonData() {
         let pageHeight = document.documentElement.scrollHeight;
         // console.log(pageHeight - (window.innerHeight + window.scrollY))
 
-        if (pageHeight - (window.innerHeight + window.scrollY) <= 50) {
+        let results = pageHeight - (window.innerHeight + window.scrollY);
+        if (results <= 50) {
             //  let last = pageHeight - (window.innerHeight + window.scrollY);
             //console.log("çalıştı offset 50 ", pageHeight - (window.innerHeight + window.scrollY))
-            setOffset(offset + 9)
-            console.log(offset)
-            //  console.log(offset)
+            setTimeout(() => {
+                //console.log("timeout ")
+                setOffset(offset + 30)
+                //console.log(offset)
+            }, 100);
         }
         //else {
         //     console.log("why")
