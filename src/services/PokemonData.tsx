@@ -52,9 +52,9 @@ function PokemonData() {
             // setNewCardLoding(true)
             setTimeout(() => {
                 // console.log("çalışıyo")
-
+                setOffset(offset => offset + 30)
                 //console.log("timeout ")
-                setOffset(offset + 30)
+                //setOffset(offset + 30)
                 // console.log(offset)
                 //  setNewCardLoding(false)
 

@@ -1,26 +1,27 @@
 import { React, useState, useEffect, memo } from 'react'
 import PokemonDetail from "./PokemonDetail"
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 function detailPage() {
-    return <PokemonDetail />
+
 }
 
 
 
 function PokemonCard({ name, url, id }) {
     const [User, setUser] = useState({ Poster: "", Name: "", Reirly: "", CardNo: "", Power: "" })
+    const Navigate = useNavigate();
 
     useEffect(() => {
         axios.get(url)
             .then(response => {
                 //  console.log(response.data.abilities[1].ability.url)
-
+                // console.log(response.data.id)
                 // CardNo: `${url.substring(34, 35)}` böyle verişlebilir belki
                 setUser({
                     Poster: `${response.data.sprites.front_default}`,
                     Name: `${name}`, Reirly: "",
-                    CardNo: `${id}`,
+                    CardNo: `${response.data.id}`,
                     Power: ""
                 })
 
@@ -32,8 +33,9 @@ function PokemonCard({ name, url, id }) {
     }, [])
 
 
+
     return (
-        <div onClick={detailPage} >
+        <div onClick={() => { Navigate("/detail/" + User.CardNo) }}  >
             <div className='p-10 border-2 w-60  m-10 rounded-2xl border-t-orange-800 border-b-purple-800 bg-white/40'>
                 <img srcSet={User.Poster} alt="deneme" className='w-46 ' />
                 <div className=''>

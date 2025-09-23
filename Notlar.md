@@ -1,9 +1,14 @@
 # Bu projede kulanılacaklar
 
-## axios
+1. axios
 
-## lazy layout
+2. lazy layout
 
-## Pagination (Pokemonların detay sayfası tarafında kullan)
+3. Pagination (Pokemonların detay sayfası tarafında kullan)
 
-## tailwind wind
+4. tailwind wind
+
+- arayüz düzenlencek gereksiz yorum satırları silinecek 0'dan yorum satırı eklenecek
+- Pagination page geçişleri yapılacak **RouteRoute** kulanılabilir
+
+### Buglar Dosyasını bitirmeden önce **kontrol et** 
