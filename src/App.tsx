@@ -25,11 +25,11 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-const PokemonData = React.lazy(() => import("./services/PokemonData"));
+const PokemonDataV2 = React.lazy(() => import("./services/PokemonDataV2"));
 import PokemonDetail from "./components/PokemonDetail";
 import NavBar from "./components/NavBar";
 import "./tailwind.css"
-
+import PaginatedItems from './components/LayzLoad-deneme';
 
 function App() {
   return (
@@ -38,8 +38,9 @@ function App() {
         <NavBar />
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<PokemonData />} />
+            <Route path='/' element={<PokemonDataV2 />} />
             <Route path='/detail/:id' element={<PokemonDetail />} />
+        
           </Routes>
         </BrowserRouter>
       </div>

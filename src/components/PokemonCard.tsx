@@ -35,9 +35,18 @@ function PokemonCard({ name, url, id }) {
 
 
     return (
-        <div onClick={() => { Navigate("/detail/" + User.CardNo) }}  >
-            <div className='p-10 border-2 w-60  m-10 rounded-2xl border-t-orange-800 border-b-purple-800 bg-white/40'>
-                <img srcSet={User.Poster} alt="deneme" className='w-46 ' />
+        <div onClick={() => { Navigate("/detail/" + User.CardNo) }} className='w-1/4' >
+            <div className='
+            flex
+             
+            justify-center 
+            items-center
+          
+            p-5 
+            border-2  
+            m-10 
+            rounded-2xl border-t-orange-800 border-b-purple-800 bg-white/40'>
+                <img srcSet={User.Poster}  /*alt="Pokemonİmg" */ className='w-46 ' />
                 <div className=''>
                     <h2>Name: {User.Name}</h2>
                     <h2>Reirly:</h2> {/*Reirly = Nadirlik*/}

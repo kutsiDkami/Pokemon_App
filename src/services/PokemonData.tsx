@@ -1,4 +1,4 @@
-import React, { useReducer, memo, useEffect, useState, Suspense, lazy } from 'react'
+import React, { useReducer, useMemo, memo, useEffect, useState, Suspense, lazy } from 'react'
 import axios from 'axios';
 const PokemonCard = React.lazy(() => import("../components/PokemonCard"));
 
@@ -20,20 +20,40 @@ function PokemonData() {
     });
 
     let limit = 50; //gelen verinin sonu
-    useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+    // useEffect(() => {
+    //     axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+    //         .then(response => {
+    //             // console.log(response.data.results)
+    //             // setUsePokemon([...usePokemonData, ...response.data.results]);
+    //             setUsePokemon(usePokemonData => [...usePokemonData, ...response.data.results])
+    //             // setUsePokemon(usePokemonData => [...state.usePokemonData, ...response.data.results])
+
+    //         })
+    //         .catch(error => {
+    //             // 404, 500 vs. burada yakalanır
+    //             console.error('Error:', error.response?.status);
+    //         });
+    // }, [offset])
+
+    const response = useMemo(() => {
+        return axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
             .then(response => {
                 // console.log(response.data.results)
                 // setUsePokemon([...usePokemonData, ...response.data.results]);
                 setUsePokemon(usePokemonData => [...usePokemonData, ...response.data.results])
                 // setUsePokemon(usePokemonData => [...state.usePokemonData, ...response.data.results])
-
+              
             })
             .catch(error => {
                 // 404, 500 vs. burada yakalanır
                 console.error('Error:', error.response?.status);
             });
     }, [offset])
+
+
+
+
+
 
     // const [NewCardLoding, setNewCardLoding] = useState(false);
     useEffect(() => {
@@ -45,7 +65,7 @@ function PokemonData() {
         // console.log(pageHeight - (window.innerHeight + window.scrollY))
 
         let results = pageHeight - (window.innerHeight + window.scrollY);
-        if (results <= 200) {
+        if (results < 200) {
             //  let last = pageHeight - (window.innerHeight + window.scrollY);
             //console.log("çalıştı offset 50 ", pageHeight - (window.innerHeight + window.scrollY))
 
@@ -80,3 +100,5 @@ function PokemonData() {
 }
 
 export default PokemonData
+
+

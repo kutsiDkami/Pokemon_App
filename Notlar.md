@@ -9,6 +9,6 @@
 4. tailwind wind
 
 - arayüz düzenlencek gereksiz yorum satırları silinecek 0'dan yorum satırı eklenecek
-- Pagination page geçişleri yapılacak **RouteRoute** kulanılabilir
+- Pagination page geçişleri yapılacak **Route** kulanılabilir
 
 ### Buglar Dosyasını bitirmeden önce **kontrol et** 
