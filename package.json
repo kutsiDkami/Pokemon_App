@@ -19,6 +19,7 @@
     "react-paginate": "^8.3.0",
     "react-router-app": "^0.1.6",
     "react-router-dom": "^7.9.1",
+    "react-router-pagination": "^3.3.156",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {

@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+  user-select: none;
+  margin: 15px;
+}
+
+.pagination li {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.pagination li:hover {
+  background-color: #eee;
+}
+
+.pagination li.active {
+  background-color: darkred; /* aktif sayfa için renk */
+  color: white;
+}

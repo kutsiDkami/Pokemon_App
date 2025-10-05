@@ -10,7 +10,7 @@ const initialState = {
     loading: false,
     Offset: 0,
     hasNextPage: true,
-  //  cardNo: []
+    //  cardNo: []
 }
 
 
@@ -27,7 +27,7 @@ function PokemonDataV2() {
 
 
     //const offset = 0;
-    const limit = 105;
+    const limit = 50;
 
 
     const FirstData = async (append = false) => {

@@ -29,7 +29,14 @@ const Reducer = (state, action) => {
       return { ...state, data: "", loading: false, error: action.error };
     case "DETAIL_DATA":
       return { ...state, detailData: action.detailData };
-
+    // case "PAGINATE_DATA":
+    //   return {
+    //     ...state,
+    //     detailData: action.detailData,
+    //     currentPage: action.currentPage,// Şu anki sayfa
+    //     postsPerPage: action.postsPerPage,// Sayfa başına gösterilecek öğe sayısı
+    //     totalPosts: action.totalPosts // Toplam öğe sayısı
+    //   };
     default:
       return { ...state };
   }
