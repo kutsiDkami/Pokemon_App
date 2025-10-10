@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
 
-function PaidionData(proms) {
+function PaidionData(proms: any) {
+
   const { name, url, id } = proms;
   const [newPosters, setNewPosters] = React.useState("")
 
@@ -25,10 +26,10 @@ function PaidionData(proms) {
             flex-col
             justify-center 
             items-center
+            w-46
             p-5 
-            border-2  
             m-10 
-            rounded-2xl border-t-orange-800 border-b-purple-800 bg-white/40'>
+            rounded-2xl  bg-white/40'>
         <img srcSet={newPosters}  /*alt="Pokemonİmg" */ className='w-46 ' />
         <div className=''>
           <h2>Name: {name}</h2>

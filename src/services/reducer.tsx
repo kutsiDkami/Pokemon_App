@@ -1,5 +1,5 @@
 
-const Reducer = (state, action) => {
+const Reducer = (state: any, action: any) => {
   //console.log(action);
 
   switch (action.type) {

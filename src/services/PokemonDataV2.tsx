@@ -34,11 +34,12 @@ function PokemonDataV2() {
         try {
             dispach({ type: "LODING" })
             const response = await // axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10500&offset=10500`)
-                axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${Offset}`)
+                // axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${Offset}`)
+                axios.get(`https://pokeapi.co/api/v2/pokemon-form?limit=${limit}&offset=${Offset}`)
             const nextUrl = response.data.next;
             const newData = response.data.results;
             // console.log(hasNextPage)
-
+            // console.log(newData)
             if (append) {
                 // console.log(append + " append çalıştı")
                 dispach({
@@ -79,11 +80,12 @@ function PokemonDataV2() {
 
 
     return (<>
+        <input type="text" className='bg-white rounded p-1 m-5 border-2' placeholder='search🔍︎'  />
         <div className='flex flex-wrap justify-center grid-cols-3 gap-x-8   '>
-
+            
 
             <Suspense fallback={<div className='w-full h-full flex justify-center m-5 text-3xl'>Loading...</div>}>
-                {data && data.map((data, index) => {
+                {data && data.map((data: any, index: number) => {
                     //console.log(data)
                     return <PokemonCard name={data.name} url={data.url} id={index + 1} key={index} />
                 })}

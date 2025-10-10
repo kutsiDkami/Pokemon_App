@@ -37,10 +37,10 @@ function App() {
       <div >
         <NavBar />
         <BrowserRouter>
-          <Routes>
+          <Routes >
             <Route path='/' element={<PokemonDataV2 />} />
             <Route path='/detail/:id' element={<PokemonDetail />} />
-        
+
           </Routes>
         </BrowserRouter>
       </div>

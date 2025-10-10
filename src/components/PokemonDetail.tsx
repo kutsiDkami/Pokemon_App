@@ -96,13 +96,11 @@ function PokemonDetail() {
   const [numbers, setNumbers] = useState(5);
 
 
-
   //? 2.Pagination RouteDom yeniler ve bunun için tüm  
   useEffect(() => {
     const RouterPagiation = async () => {
       const res = await axios.get("https://pokeapi.co/api/v2/pokemon-form?limit=10502&offset=0")
       // console.log(res.data.results)
-
       // const nums = res.data.results.map((_, index) => index + 1);
       const nums = res.data.results.map((data: any, index: number) => {
         return parseInt(data.url.split("/")[6])
